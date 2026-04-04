@@ -77,7 +77,7 @@ function LoginForm() {
 
             <button type='submit'>Login</button>
 
-            { error && <p>{error}</p> }
+            { error && <p className="error-text">{error}</p> }
         </form>
     )
 }

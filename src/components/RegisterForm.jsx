@@ -94,8 +94,8 @@ function RegisterForm() {
 
             <button type="submit">Register</button>
             
-            { error && <p>{error}</p> }
-            { success && <p>{success}</p> }
+            { error && <p className="error-text">{error}</p> }
+            { success && <p className="success-text">{success}</p> }
         </form>
     )
 }

@@ -39,11 +39,10 @@ function Home() {
     }
 
     return (
-        <div>
+        <div className="page-container">
             <h1>gluFind</h1>
             <p>Find and save your favorite gluten free places</p>
             <br />
-            <hr />
             <h2>Restaurants</h2>
             <RestaurantList restaurants={restaurants}/>
         </div>

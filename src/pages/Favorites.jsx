@@ -77,22 +77,24 @@ function Favorites() {
 
     return (
         <>
-            <h2>Favorites</h2>
+            <div className="page-container">
+                <h2>Favorites</h2>
 
-            {favorites.length === 0 ? (
-                <p>No favorite restaurants yet</p>
-            ) : (
-                favorites.map((favorite) => (
-                    <div key={favorite._id}>
-                        <h3>{favorite.restaurantId.name}</h3>
-                        <p>{favorite.restaurantId.description}</p>
-                        <p>{favorite.restaurantId.address}</p>
+                {favorites.length === 0 ? (
+                    <p>No favorite restaurants yet</p>
+                ) : (
+                    favorites.map((favorite) => (
+                        <div key={favorite._id} className="favorite-card">
+                            <h3>{favorite.restaurantId.name}</h3>
+                            <p>{favorite.restaurantId.description}</p>
+                            <p>{favorite.restaurantId.address}</p>
 
-                        <Link to={`/restaurants/${favorite.restaurantId._id}`}>View Details</Link>
-                        <button onClick={() => handleRemoveFavorite(String(favorite.restaurantId._id))}>Remove</button>
-                    </div>
-                ))
-            )}
+                            <Link to={`/restaurants/${favorite.restaurantId._id}`}><button>View Details</button></Link>
+                            <button onClick={() => handleRemoveFavorite(String(favorite.restaurantId._id))}>Remove</button>
+                        </div>
+                    ))
+                )}
+            </div>
         </>
     )
 }

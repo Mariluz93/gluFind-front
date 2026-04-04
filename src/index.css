@@ -1,19 +1,151 @@
-body {
-  font-family: Arial, sans-serif;
-  padding: 20px;
-  background-color: #f3f0eb;
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --color-primary: #5FA777;
+  --color-primary-dark: #3F7D57;
+  --color-accent: #D97A4A;
+  --color-background: #FAF7F1;
+  --color-surface: #FFFFFF;
+  --color-text: #425f56;
+  --color-text-soft: #5B675E;
+  --color-border: #D9E2D6;
+  --color-success: #4E9F6D;
+  --color-error: #C75C5C;
+  --shadow-soft: 0 4px 12px rgba(35, 49, 39, 0.08);
+  --shadow-hover: 0 6px 16px rgba(35, 49, 39, 0.12);
 }
 
-h1, h2, h3 {
-  margin-bottom: 10px;
-  color: #5FA777;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: 'Raleway', sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--color-primary-dark);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button{
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
+  box-shadow: var(--shadow-soft);
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--color-primary-dark);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: scale(0.98);
+  box-shadow: var(--shadow-soft);
+}
+
+input:not([type="checkbox"]),
+select {
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 0.4rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+}
+
+input[type="checkbox"] {
+  width:auto;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+form {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+nav {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--color-text);
+  margin-bottom: 0.8rem;
+}
+
+p {
+  color: var(--color-text-soft);
+  margin-bottom: 0.8rem;
+}
+
+label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.8rem;
 }
 
 div {
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 }
 
-button {
-  margin-top: 5px;
-  cursor: pointer;
+.restaurant-card,
+.dish-card,
+.favorite-card,
+.dashboard-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.page-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.error-text {
+  color: var(--color-error);
+}
+
+.success-text {
+  color: var(--color-success);
 }

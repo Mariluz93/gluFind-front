@@ -132,28 +132,30 @@ function RestaurantDetail() {
 
     return (
         <>
-            <h2>{restaurant.name}</h2>
-            <p>{restaurant.description}</p>
-            <p>{restaurant.address}</p>
+            <div className="page-container">
+                <h2>{restaurant.name}</h2>
+                <p>{restaurant.description}</p>
+                <p>{restaurant.address}</p>
 
-            <FavoriteButton
-                isFavorite={isFavorite}
-                onAdd={handleAddFavorite}
-                onRemove={handleRemoveFavorite}
-                canUseFavorites={canUseFavorites}
-            />
-
-            <label>
-                <input
-                    type="checkbox"
-                    checked={onlyGlutenFree}
-                    onChange={() => setOnlyGlutenFree(!onlyGlutenFree)}
+                <FavoriteButton
+                    isFavorite={isFavorite}
+                    onAdd={handleAddFavorite}
+                    onRemove={handleRemoveFavorite}
+                    canUseFavorites={canUseFavorites}
                 />
-                Show only gluten free dishes
-            </label>
 
-            <h3>Menu</h3>
-            <DishList dishes={filteredDishes} />
+                <label>
+                    <input
+                        type="checkbox"
+                        checked={onlyGlutenFree}
+                        onChange={() => setOnlyGlutenFree(!onlyGlutenFree)}
+                    />
+                    Show only gluten free dishes
+                </label>
+
+                <h3>Menu</h3>
+                <DishList dishes={filteredDishes} />
+            </div>
         </>
     )
 }

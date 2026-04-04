@@ -77,37 +77,39 @@ function RestaurantDashboard() {
 
     return (
         <>
-            <h2>Restaurant Dashboard</h2>
+            <div className="page-container">
+                <h2>Restaurant Dashboard</h2>
 
-            {!restaurant ? (
-                <>
-                    <p>You don't have a restaurant yet</p>
-                    <Link to="/create-restaurant">Create a restaurant</Link>
-                </>
-            ) : (
-                <>
-                    <h3>{restaurant.name}</h3>
-                    <p>{restaurant.description}</p>
+                {!restaurant ? (
+                    <>
+                        <p>You don't have a restaurant yet</p>
+                        <Link to="/create-restaurant">Create a restaurant</Link>
+                    </>
+                ) : (
+                    <>
+                        <h3>{restaurant.name}</h3>
+                        <p>{restaurant.description}</p>
 
-                    <Link to="/create-dish">Add Dish</Link>
+                        <Link to="/create-dish">Add Dish</Link>
 
-                    <h3>Your Dishes</h3>
+                        <h3>Your Dishes</h3>
 
-                    {dishes.length === 0 ? (
-                        <p>No dishes yet</p>
-                    ) : (
-                        dishes.map((dish) => (
-                            <div key={dish._id}>
-                                <h4>{dish.name}</h4>
-                                <p>{dish.description}</p>
-                                <p>{dish.price} €</p>
+                        {dishes.length === 0 ? (
+                            <p>No dishes yet</p>
+                        ) : (
+                            dishes.map((dish) => (
+                                <div key={dish._id} className="dashboard-card">
+                                    <h4>{dish.name}</h4>
+                                    <p>{dish.description}</p>
+                                    <p>{dish.price} €</p>
 
-                                <button onClick={() => handleDeleteDish(dish._id)}>Delete</button>
-                            </div>
-                        ))
-                    )}
-                </>
-            )}
+                                    <button onClick={() => handleDeleteDish(dish._id)}>Delete</button>
+                                </div>
+                            ))
+                        )}
+                    </>
+                )}
+            </div>
         </>
     )
 }

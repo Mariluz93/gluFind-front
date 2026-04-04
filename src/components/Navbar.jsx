@@ -6,24 +6,24 @@ function Navbar() {
 
     return (
         <nav>
-            <Link to='/'>Home</Link> | {' '}
+            <Link to='/'>Home</Link>
 
             {!user && (
                 <>
-                    <Link to='/login'>Login</Link> | {' '}
+                    <Link to='/login'>Login</Link>
                     <Link to='/register'>Register</Link>
                 </>
             )}
 
             {user && user.role === 'user' && (
                 <>
-                    <Link to='/favorites'>Favorites</Link> | {' '}
+                    <Link to='/favorites'>Favorites</Link>
                     <button onClick={logout}>Logout</button>
                 </>
             )}
             {user && user.role === 'restaurant' && (
                 <>
-                    <Link to='/dashboard'>Dashboard</Link> | {' '}
+                    <Link to='/dashboard'>Dashboard</Link>
                     <button onClick={logout}>Logout</button>
                 </>
             )}            
