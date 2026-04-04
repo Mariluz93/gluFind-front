@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import { useAuth } from '../context/AuthContext'
 import { Link } from "react-router-dom" 
+import { useNavigate } from "react-router-dom"
 
 function RestaurantDashboard() {
     const { user, token } = useAuth()
+    const navigate = useNavigate()
 
     const [restaurant, setRestaurant] = useState(null)
     const [dishes, setDishes] = useState([])
@@ -68,7 +70,7 @@ function RestaurantDashboard() {
     }
 
     if (loading) {
-        return <p>Loading dashboard...</p>
+        return <p>Cargando dashboard...</p>
     }
 
     if (error) {
@@ -78,24 +80,26 @@ function RestaurantDashboard() {
     return (
         <>
             <div className="page-container">
-                <h2>Restaurant Dashboard</h2>
+                <h2>Dashboard</h2>
 
                 {!restaurant ? (
                     <>
-                        <p>You don't have a restaurant yet</p>
-                        <Link to="/create-restaurant">Create a restaurant</Link>
+                        <p>Aun no has creado tu restaurante</p>
+                        <Link to="/create-restaurant">Crear restaurante</Link>
                     </>
                 ) : (
                     <>
                         <h3>{restaurant.name}</h3>
                         <p>{restaurant.description}</p>
+                        <p>{restaurant.address}</p>
 
-                        <Link to="/create-dish">Add Dish</Link>
+                        <button onClick={() => navigate(`/edit-restaurant/${restaurant._id}`)}>Editar restaurante</button>
+                        <Link to="/create-dish"><button>Añadir plato</button></Link>
 
-                        <h3>Your Dishes</h3>
+                        <h3>Tus platos</h3>
 
                         {dishes.length === 0 ? (
-                            <p>No dishes yet</p>
+                            <p>Aun no tienes platos</p>
                         ) : (
                             dishes.map((dish) => (
                                 <div key={dish._id} className="dashboard-card">
@@ -103,7 +107,8 @@ function RestaurantDashboard() {
                                     <p>{dish.description}</p>
                                     <p>{dish.price} €</p>
 
-                                    <button onClick={() => handleDeleteDish(dish._id)}>Delete</button>
+                                    <button onClick={() => navigate(`/edit-dish/${dish._id}`)}>Editar</button>
+                                    <button onClick={() => handleDeleteDish(dish._id)}>Eliminar</button>
                                 </div>
                             ))
                         )}

@@ -55,13 +55,13 @@ function CreateRestaurant() {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <h2>Create Restaurant</h2>
+                <h2>Crear Restaurante</h2>
 
-                <input name="name" placeholder="Name" onChange={handleChange} />
-                <input name="description" placeholder="Description" onChange={handleChange} />
-                <input name="address" placeholder="Address" onChange={handleChange} />
+                <input name="name" placeholder="Nombre" onChange={handleChange} />
+                <input name="description" placeholder="Descripción" onChange={handleChange} />
+                <input name="address" placeholder="Dirección" onChange={handleChange} />
 
-                <button>Create</button>
+                <button>Crear restaurante</button>
 
                 {error && <p>{error}</p> }
             </form>

@@ -6,9 +6,9 @@ function FavoriteButton({ isFavorite, onAdd, onRemove, canUseFavorites }) {
     return (
         <>
             {isFavorite ? (
-                <button onClick={onRemove}>Remove from favorites</button>
+                <button onClick={onRemove}>Quitar de favoritos</button>
             ) : (
-                <button onClick={onAdd}>Add to favorites</button>
+                <button onClick={onAdd}>Añadir a favoritos</button>
             )}
         </>
     )

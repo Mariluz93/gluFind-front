@@ -7,7 +7,7 @@ function RestaurantCard({ restaurant }) {
             <p>{restaurant.description}</p>
             <p>{restaurant.address}</p>
 
-            <Link to={`/restaurants/${restaurant._id}`} ><button>View details</button></Link>
+            <Link to={`/restaurants/${restaurant._id}`} ><button>Ver restaurante</button></Link>
         </div>
     )
 }

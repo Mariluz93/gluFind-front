@@ -1,5 +1,16 @@
+import { Link } from "react-router-dom"
+
 function NotFound() {
-    return <h2>404 - Page not found</h2>
+    return (
+        <div className="page-container status-page">
+            <h2>Página no encontrada</h2>
+            <p>La página que busca no existe o no está disponible</p>
+
+            <Link to="/">
+                <button>Ir a Inicio</button>
+            </Link>
+        </div>
+    )
 }
 
 export default NotFound

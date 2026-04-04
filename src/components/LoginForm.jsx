@@ -51,13 +51,13 @@ function LoginForm() {
             }
 
         } catch (error) {
-            setError('Error server')
+            setError('Server error')
         }
     }
 
     return (
         <form onSubmit={handleSubmit}>
-            <h3>Login</h3>
+            <h3>Iniciar sesión</h3>
 
             <input
                 type='email'
@@ -70,12 +70,12 @@ function LoginForm() {
             <input
                 type='password'
                 name='password'
-                placeholder='Password'
+                placeholder='Contraseña'
                 value={formData.password}
                 onChange={handleChange}
             />
 
-            <button type='submit'>Login</button>
+            <button type='submit'>Entrar</button>
 
             { error && <p className="error-text">{error}</p> }
         </form>

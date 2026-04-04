@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import RestaurantList from "../components/RestaurantList"
+import logo from '../assets/logo.png'
 
 function Home() {
     const [restaurants, setRestaurants] = useState([])
@@ -31,7 +32,7 @@ function Home() {
     }, [])
 
     if (loading) {
-        return <p>Loading restaurants...</p>
+        return <p>Cargando restaurantes...</p>
     }
 
     if(error) {
@@ -40,10 +41,12 @@ function Home() {
 
     return (
         <div className="page-container">
-            <h1>gluFind</h1>
-            <p>Find and save your favorite gluten free places</p>
+            <div className="home-header">
+                <img src={logo} alt="Logo de gluFind en cabecera" className='home-logo'/>
+                <p>Busca y guarda tus opciones SIN GLUTEN favoritas</p>
+            </div>
             <br />
-            <h2>Restaurants</h2>
+            <h2>Restaurantes</h2>
             <RestaurantList restaurants={restaurants}/>
         </div>
     )

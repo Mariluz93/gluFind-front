@@ -57,12 +57,12 @@ function RegisterForm() {
 
     return (
         <form onSubmit={handleSubmit}>
-            <h3>Register</h3>
+            <h3>Registro</h3>
 
             <input 
                 type="text"
                 name="name"
-                placeholder="Name"
+                placeholder="Nombre"
                 value={formData.name}
                 onChange={handleChange}
             />
@@ -78,7 +78,7 @@ function RegisterForm() {
             <input 
                 type="password"
                 name="password"
-                placeholder="Password"
+                placeholder="Contraseña"
                 value={formData.password}
                 onChange={handleChange}
             />
@@ -88,11 +88,11 @@ function RegisterForm() {
                 value={formData.role}
                 onChange={handleChange}
             >
-                <option value='user'>User</option>
-                <option value='restaurant'>Restaurant</option>
+                <option value='user'>Cliente</option>
+                <option value='restaurant'>Restaurante</option>
             </select>
 
-            <button type="submit">Register</button>
+            <button type="submit">Registrarse</button>
             
             { error && <p className="error-text">{error}</p> }
             { success && <p className="success-text">{success}</p> }

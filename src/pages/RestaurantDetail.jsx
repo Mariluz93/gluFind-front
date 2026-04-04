@@ -88,7 +88,7 @@ function RestaurantDetail() {
             
             setIsFavorite(true)
         } catch (error) {
-            setError('ServerError')
+            setError('Server Error')
         }
     }
 
@@ -119,7 +119,7 @@ function RestaurantDetail() {
         : dishes
     
         if (loading) {
-            return <p>Loading restaurant...</p>
+            return <p>Cargando restaurante...</p>
         }
 
         if (error) {
@@ -127,7 +127,7 @@ function RestaurantDetail() {
         }
 
         if (!restaurant) {
-            return <p>Restaurant not found</p>
+            return <p>Restaurante no encontrado</p>
         }
 
     return (
@@ -150,10 +150,10 @@ function RestaurantDetail() {
                         checked={onlyGlutenFree}
                         onChange={() => setOnlyGlutenFree(!onlyGlutenFree)}
                     />
-                    Show only gluten free dishes
+                    Mostrar solo platos sin gluten
                 </label>
 
-                <h3>Menu</h3>
+                <h3>Menú</h3>
                 <DishList dishes={filteredDishes} />
             </div>
         </>

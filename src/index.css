@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  --color-primary: #5FA777;
-  --color-primary-dark: #3F7D57;
+  --color-primary: #3FB7A4;
+  --color-primary-dark: #297c70;
   --color-accent: #D97A4A;
   --color-background: #FAF7F1;
   --color-surface: #FFFFFF;
@@ -10,7 +10,7 @@
   --color-text-soft: #5B675E;
   --color-border: #D9E2D6;
   --color-success: #4E9F6D;
-  --color-error: #C75C5C;
+  --color-error: #E96A6A;
   --shadow-soft: 0 4px 12px rgba(35, 49, 39, 0.08);
   --shadow-hover: 0 6px 16px rgba(35, 49, 39, 0.12);
 }
@@ -19,6 +19,33 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.logo {
+  height: 70px;
+  width: auto;
+  display: block;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.home-logo {
+  height: 150px;
+  width: auto;
+  display: block;
+  margin: 0 auto 1rem;
+}
+
+.home-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.home-header p {
+  margin-top: 0.5rem
 }
 
 body {
@@ -148,4 +175,9 @@ div {
 
 .success-text {
   color: var(--color-success);
+}
+
+.status-page {
+  text-align: center;
+  padding: 3rem 1rem;
 }
