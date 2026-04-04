@@ -74,9 +74,6 @@ function Favorites() {
         return <p>{error}</p>
     }
 
-    if (!user || user.role !== "user") {
-        return <p>Only users can see favorites</p>
-    }
 
     return (
         <>

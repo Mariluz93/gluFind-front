@@ -75,10 +75,6 @@ function RestaurantDashboard() {
         return <p>{error}</p>
     }
 
-    if (!user || user.role !== 'restaurant') {
-        return <p>Only restaurants can access this page</p>
-    }
-
     return (
         <>
             <h2>Restaurant Dashboard</h2>

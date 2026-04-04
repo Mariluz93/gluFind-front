@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import ProtectedRoute from '../components/ProtectedRoute'
+import RoleProtectedRoute from '../components/RoleProtectedRoute'
 import Home from '../pages/Home'
 import Login from '../pages/Login'
 import Register from '../pages/Register'
@@ -28,7 +29,9 @@ function AppRoutes() {
                     path='/favorites'
                     element={
                         <ProtectedRoute>
-                            <Favorites />
+                            <RoleProtectedRoute allowedRole='user'>
+                                <Favorites />
+                            </RoleProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
@@ -37,7 +40,9 @@ function AppRoutes() {
                     path='/dashboard'
                     element={
                         <ProtectedRoute>
-                            <RestaurantDashboard />
+                            <RoleProtectedRoute allowedRole='restaurant'>
+                                <RestaurantDashboard />
+                            </RoleProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
@@ -46,7 +51,9 @@ function AppRoutes() {
                     path='/create-restaurant'
                     element={
                         <ProtectedRoute>
-                            <CreateRestaurant />
+                            <RoleProtectedRoute allowedRole='restaurant'>
+                                <CreateRestaurant />
+                            </RoleProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
@@ -55,7 +62,9 @@ function AppRoutes() {
                     path='/edit-restaurant/:id'
                     element={
                         <ProtectedRoute>
-                            <EditRestaurant />
+                            <RoleProtectedRoute allowedRole='restaurant'>
+                                <EditRestaurant />
+                            </RoleProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
@@ -64,7 +73,9 @@ function AppRoutes() {
                     path='/create-dish'
                     element={
                         <ProtectedRoute>
-                            <CreateDish />
+                            <RoleProtectedRoute allowedRole='restaurant'>
+                                <CreateDish />
+                            </RoleProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
@@ -73,11 +84,12 @@ function AppRoutes() {
                     path='/edit-dish/:id'
                     element={
                         <ProtectedRoute>
-                            <EditDish />
+                            <RoleProtectedRoute allowedRole='restaurant'>                       
+                                <EditDish />
+                            </RoleProtectedRoute>
                         </ProtectedRoute>
                     }
                 />
-                
 
                 <Route path='/unauthorized' element={<Unauthorized />} />
                 <Route path='/*' element={<NotFound />} />

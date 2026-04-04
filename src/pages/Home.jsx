@@ -40,6 +40,10 @@ function Home() {
 
     return (
         <div>
+            <h1>gluFind</h1>
+            <p>Find and save your favorite gluten free places</p>
+            <br />
+            <hr />
             <h2>Restaurants</h2>
             <RestaurantList restaurants={restaurants}/>
         </div>

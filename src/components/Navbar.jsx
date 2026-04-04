@@ -15,9 +15,14 @@ function Navbar() {
                 </>
             )}
 
-            {user && (
+            {user && user.role === 'user' && (
                 <>
                     <Link to='/favorites'>Favorites</Link> | {' '}
+                    <button onClick={logout}>Logout</button>
+                </>
+            )}
+            {user && user.role === 'restaurant' && (
+                <>
                     <Link to='/dashboard'>Dashboard</Link> | {' '}
                     <button onClick={logout}>Logout</button>
                 </>
