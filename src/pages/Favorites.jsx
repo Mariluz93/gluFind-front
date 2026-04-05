@@ -83,16 +83,27 @@ function Favorites() {
                 {favorites.length === 0 ? (
                     <p>Aun no tienes restaurantes favoritos</p>
                 ) : (
-                    favorites.map((favorite) => (
-                        <div key={favorite._id} className="favorite-card">
-                            <h3>{favorite.restaurantId.name}</h3>
-                            <p>{favorite.restaurantId.description}</p>
-                            <p>{favorite.restaurantId.address}</p>
-
-                            <Link to={`/restaurants/${favorite.restaurantId._id}`}><button>Ver restaurante</button></Link>
-                            <button onClick={() => handleRemoveFavorite(String(favorite.restaurantId._id))}>Quitar</button>
-                        </div>
-                    ))
+                    <div className="favorite-list">
+                        {favorites.map((favorite) => (
+                            <div key={favorite._id} className="favorite-card">
+                                {favorite.restaurantId.image && (
+                                    <img
+                                        src={favorite.restaurantId.image}
+                                        alt={favorite.restaurantId.name}
+                                        className="card-image"
+                                    />
+                                )}
+                                <h3>{favorite.restaurantId.name}</h3>
+                                <p>{favorite.restaurantId.description}</p>
+                                <p>{favorite.restaurantId.address}</p>
+                                
+                                <div className='card-actions'>
+                                    <Link to={`/restaurants/${favorite.restaurantId._id}`}><button>Ver restaurante</button></Link>
+                                    <button onClick={() => handleRemoveFavorite(String(favorite.restaurantId._id))}>Quitar</button>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 )}
             </div>
         </>

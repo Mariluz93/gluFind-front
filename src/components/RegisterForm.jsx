@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import logo from '../assets/logo.png'
 
 function RegisterForm() {
     const navigate = useNavigate()
@@ -56,47 +57,51 @@ function RegisterForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h3>Registro</h3>
+        <>
+            <img src={logo} alt="Logo de gluFind en cabecera" className='home-logo'/>
+            <form onSubmit={handleSubmit}>
+                <h3>Registro</h3>
 
-            <input 
-                type="text"
-                name="name"
-                placeholder="Nombre"
-                value={formData.name}
-                onChange={handleChange}
-            />
+                <input 
+                    type="text"
+                    name="name"
+                    placeholder="Nombre"
+                    value={formData.name}
+                    onChange={handleChange}
+                />
 
-            <input 
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleChange}
-            />
-            
-            <input 
-                type="password"
-                name="password"
-                placeholder="Contraseña"
-                value={formData.password}
-                onChange={handleChange}
-            />
-            
-            <select
-                name='role'
-                value={formData.role}
-                onChange={handleChange}
-            >
-                <option value='user'>Cliente</option>
-                <option value='restaurant'>Restaurante</option>
-            </select>
-
-            <button type="submit">Registrarse</button>
-            
-            { error && <p className="error-text">{error}</p> }
-            { success && <p className="success-text">{success}</p> }
-        </form>
+                <input 
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    value={formData.email}
+                    onChange={handleChange}
+                />
+                
+                <input 
+                    type="password"
+                    name="password"
+                    placeholder="Contraseña"
+                    value={formData.password}
+                    onChange={handleChange}
+                />
+                
+                <select
+                    name='role'
+                    value={formData.role}
+                    onChange={handleChange}
+                >
+                    <option value='user'>Cliente</option>
+                    <option value='restaurant'>Restaurante</option>
+                </select>
+                <div className='form-actions'>
+                    <button type="submit">Registrarse</button>
+                </div>
+                
+                { error && <p className="error-text">{error}</p> }
+                { success && <p className="success-text">{success}</p> }
+            </form>
+        </>
     )
 }
 

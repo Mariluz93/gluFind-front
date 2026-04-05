@@ -133,9 +133,14 @@ function RestaurantDetail() {
     return (
         <>
             <div className="page-container">
-                <h2>{restaurant.name}</h2>
-                <p>{restaurant.description}</p>
-                <p>{restaurant.address}</p>
+                <div className="detail-header">
+                    {restaurant.image && (
+                        <img src={restaurant.image} alt={restaurant.name} className="detail-image" />
+                    )}
+                    <h2>{restaurant.name}</h2>
+                    <p>{restaurant.description}</p>
+                    <p>{restaurant.address}</p>
+                </div>
 
                 <FavoriteButton
                     isFavorite={isFavorite}

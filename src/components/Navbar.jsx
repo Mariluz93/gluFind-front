@@ -7,30 +7,34 @@ function Navbar() {
 
     return (
         <nav>
-            <Link to="/" className='logo-link'>
-                <img src={logo} alt="Logo de gluFind para acceder a inicio" className='logo'/>
-            </Link>
-            <Link to='/'>Inicio</Link>
+            <div className='nav-left'>
+                <Link to="/" className='logo-link'>
+                    <img src={logo} alt="Logo de gluFind para acceder a inicio" className='logo'/>
+                </Link>
+            </div>
 
-            {!user && (
-                <>
-                    <Link to='/login'>Iniciar sesión</Link>
-                    <Link to='/register'>¡Regístrate!</Link>
-                </>
-            )}
+            <div className='nav-right'>
+                <Link to='/'>Inicio</Link>
+                {!user && (
+                    <>
+                        <Link to='/login'>Iniciar sesión</Link>
+                        <Link to='/register'>¡Regístrate!</Link>
+                    </>
+                )}
 
-            {user && user.role === 'user' && (
-                <>
-                    <Link to='/favorites'>Favoritos</Link>
-                    <button onClick={logout}>Cerrar sesión</button>
-                </>
-            )}
-            {user && user.role === 'restaurant' && (
-                <>
-                    <Link to='/dashboard'>Dashboard</Link>
-                    <button onClick={logout}>Cerrar sesión</button>
-                </>
-            )}            
+                {user && user.role === 'user' && (
+                    <>
+                        <Link to='/favorites'>Favoritos</Link>
+                        <button onClick={logout}>Cerrar sesión</button>
+                    </>
+                )}
+                {user && user.role === 'restaurant' && (
+                    <>
+                        <Link to='/dashboard'>Dashboard</Link>
+                        <button onClick={logout}>Cerrar sesión</button>
+                    </>
+                )}            
+            </div>
         </nav>
     )
 }

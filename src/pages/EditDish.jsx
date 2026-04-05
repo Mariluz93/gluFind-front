@@ -11,7 +11,8 @@ function EditDish() {
         name: '',
         description: '',
         price: '',
-        isGlutenFree: false
+        isGlutenFree: false,
+        image: ''
     })
 
     const [loading, setLoading] = useState(true)
@@ -32,7 +33,8 @@ function EditDish() {
                     name: data.name,
                     description: data.description,
                     price: data.price,
-                    isGlutenFree: data.isGlutenFree
+                    isGlutenFree: data.isGlutenFree,
+                    image: data.image || ''
                 })
             } catch (error) {
                 setError('Server error')
@@ -95,24 +97,34 @@ function EditDish() {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <h2>Editar plato</h2>
+                <h3>Editar plato</h3>
 
                 <input
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
+                    required
                 />
 
                 <input
-                    ame="description"
+                    name="description"
                     value={formData.description}
                     onChange={handleChange}
+                    required
                 />
 
                 <input
                     name="price"
                     value={formData.price}
                     onChange={handleChange}
+                    required
+                />
+
+                <input
+                    name="image"
+                    value={formData.image}
+                    onChange={handleChange}
+                    required
                 />
 
                 <label>
@@ -124,8 +136,9 @@ function EditDish() {
                         onChange={handleChange}
                     />
                 </label>
-
-                <button type="submit">Guardar cambios</button>
+                <div className='form-actions'>
+                    <button type="submit">Guardar cambios</button>
+                </div>
             </form>
         </>
     )

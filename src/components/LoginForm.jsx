@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import logo from '../assets/logo.png'
 
 function LoginForm() {
     const navigate = useNavigate()
     const { login } = useAuth()
+
 
     const [formData, setFormData] = useState({
         email: '',
@@ -56,29 +58,33 @@ function LoginForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h3>Iniciar sesión</h3>
+        <>
+            <img src={logo} alt="Logo de gluFind en cabecera" className='home-logo'/>
+            <form onSubmit={handleSubmit}>
+                <h3>Iniciar sesión</h3>
 
-            <input
-                type='email'
-                name='email'
-                placeholder='Email'
-                value={formData.email}
-                onChange={handleChange}
-            />
+                <input
+                    type='email'
+                    name='email'
+                    placeholder='Email'
+                    value={formData.email}
+                    onChange={handleChange}
+                />
 
-            <input
-                type='password'
-                name='password'
-                placeholder='Contraseña'
-                value={formData.password}
-                onChange={handleChange}
-            />
+                <input
+                    type='password'
+                    name='password'
+                    placeholder='Contraseña'
+                    value={formData.password}
+                    onChange={handleChange}
+                />
+                <div className='form-actions'>
+                    <button type='submit'>Entrar</button>
+                </div>
 
-            <button type='submit'>Entrar</button>
-
-            { error && <p className="error-text">{error}</p> }
-        </form>
+                { error && <p className="error-text">{error}</p> }
+            </form>
+        </>
     )
 }
 

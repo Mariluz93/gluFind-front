@@ -81,7 +81,7 @@ function RestaurantDashboard() {
         <>
             <div className="page-container">
                 <h2>Dashboard</h2>
-
+            
                 {!restaurant ? (
                     <>
                         <p>Aun no has creado tu restaurante</p>
@@ -89,28 +89,40 @@ function RestaurantDashboard() {
                     </>
                 ) : (
                     <>
+                        {restaurant.image && (
+                            <img src={restaurant.image} alt={restaurant.name} className="detail-image" />
+                        )}
                         <h3>{restaurant.name}</h3>
                         <p>{restaurant.description}</p>
                         <p>{restaurant.address}</p>
 
-                        <button onClick={() => navigate(`/edit-restaurant/${restaurant._id}`)}>Editar restaurante</button>
-                        <Link to="/create-dish"><button>Añadir plato</button></Link>
+                        <div className='dashboard-actions'>
+                            <button onClick={() => navigate(`/edit-restaurant/${restaurant._id}`)}>Editar restaurante</button>
+                            <Link to="/create-dish"><button>Añadir plato</button></Link>
+                        </div>
 
                         <h3>Tus platos</h3>
 
                         {dishes.length === 0 ? (
                             <p>Aun no tienes platos</p>
                         ) : (
-                            dishes.map((dish) => (
-                                <div key={dish._id} className="dashboard-card">
-                                    <h4>{dish.name}</h4>
-                                    <p>{dish.description}</p>
-                                    <p>{dish.price} €</p>
-
-                                    <button onClick={() => navigate(`/edit-dish/${dish._id}`)}>Editar</button>
-                                    <button onClick={() => handleDeleteDish(dish._id)}>Eliminar</button>
-                                </div>
-                            ))
+                            <div className="dashboard-list">
+                                {dishes.map((dish) => (
+                                    <div key={dish._id} className="dashboard-card">
+                                        {restaurant.image && (
+                                            <img src={dish.image} alt={dish.name} className="card-image" />
+                                        )}
+                                        <h4>{dish.name}</h4>
+                                        <p>{dish.description}</p>
+                                        <p>{dish.price} €</p>
+    
+                                        <div className='card-actions'>
+                                            <button onClick={() => navigate(`/edit-dish/${dish._id}`)}>Editar</button>
+                                            <button onClick={() => handleDeleteDish(dish._id)}>Eliminar</button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                         )}
                     </>
                 )}

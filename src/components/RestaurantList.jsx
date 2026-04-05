@@ -5,7 +5,7 @@ function RestaurantList({ restaurants }) {
         return <p>No hay restaurantes disponibles</p>
     }
     return (
-        <div>
+        <div className='restaurant-list'>
             {restaurants.map((restaurant) => (
                 <RestaurantCard key={restaurant._id} restaurant={restaurant} />
             ))}

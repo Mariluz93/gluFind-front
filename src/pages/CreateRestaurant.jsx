@@ -10,7 +10,8 @@ function CreateRestaurant() {
     const [formData, setFormData] = useState({
         name: '',
         description: '',
-        address: ''
+        address: '',
+        image: ''
     })
 
     const [error, setError] = useState('')
@@ -48,22 +49,44 @@ function CreateRestaurant() {
         navigate('/dashboard')
 
         } catch (error) {
-        setError("Server error")
+            setError("Server error")
         }
     }
 
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <h2>Crear Restaurante</h2>
+                <h3>Crear Restaurante</h3>
 
-                <input name="name" placeholder="Nombre" onChange={handleChange} />
-                <input name="description" placeholder="Descripción" onChange={handleChange} />
-                <input name="address" placeholder="Dirección" onChange={handleChange} />
+                <input
+                    name="name"
+                    placeholder="Nombre"
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    name="description"
+                    placeholder="Descripción"
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    name="address"
+                    placeholder="Dirección"
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    name="image"
+                    placeholder="URL de la imagen" 
+                    onChange={handleChange}
+                    required
+                />
+                <div className='form-actions'>
+                    <button>Crear restaurante</button>
+                </div>
 
-                <button>Crear restaurante</button>
-
-                {error && <p>{error}</p> }
+                {error && <p className='error-text'>{error}</p> }
             </form>
         </>
     )

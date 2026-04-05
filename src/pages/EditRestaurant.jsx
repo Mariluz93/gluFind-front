@@ -10,7 +10,8 @@ function EditRestaurant() {
     const [formData, setFormData] = useState({
         name: '',
         description: '',
-        address: ''
+        address: '',
+        image: ''
     })
 
     const [loading, setLoading] = useState(true)
@@ -30,8 +31,10 @@ function EditRestaurant() {
                 setFormData({
                         name: data.name,
                         description: data.description,
-                        address: data.address
+                        address: data.address,
+                        image: data.image
                 })
+
             } catch (error) {
                 setError('Server error')
             } finally {
@@ -90,26 +93,41 @@ function EditRestaurant() {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <h2>Editar restaurante</h2>
+                <h3>Editar restaurante</h3>
 
                 <input
                     name="name"
+                    placeholder="Nombre"
                     value={formData.name}
                     onChange={handleChange}
+                    required
                 />
 
                 <input
                     name="description"
+                    placeholder="Descripción"
                     value={formData.description}
                     onChange={handleChange}
+                    required
                 />
                 <input
                     name="address"
+                    placeholder="Dirección"
                     value={formData.address}
                     onChange={handleChange}
+                    required
                 />
 
-                <button type="submit">Guardar cambios</button>
+                <input
+                    name="image"
+                    placeholder="URL de la imagen"
+                    value={formData.image}
+                    onChange={handleChange}
+                    required
+                />
+                <div className='form-actions'>
+                    <button type="submit">Guardar cambios</button>
+                </div>
             </form>
         </>
     )

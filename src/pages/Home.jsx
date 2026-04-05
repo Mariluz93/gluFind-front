@@ -43,7 +43,7 @@ function Home() {
         <div className="page-container">
             <div className="home-header">
                 <img src={logo} alt="Logo de gluFind en cabecera" className='home-logo'/>
-                <p>Busca y guarda tus opciones SIN GLUTEN favoritas</p>
+                <p>¡REGÍSTRATE para buscar y guardar todas tus opciones SIN GLUTEN favoritas!</p>
             </div>
             <br />
             <h2>Restaurantes</h2>

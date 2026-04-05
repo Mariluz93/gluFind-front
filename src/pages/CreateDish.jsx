@@ -10,7 +10,8 @@ function CreateDish() {
         name: '',
         description: '', 
         price: '',
-        isGlutenFree: false
+        isGlutenFree: false,
+        image: ''
     })
 
     const [restaurantId, setRestaurantId] = useState('')
@@ -105,18 +106,21 @@ function CreateDish() {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <h2>Crear plato</h2>
+                <h3>Crear plato</h3>
 
                 <input name="name" placeholder="Nombre" onChange={handleChange} />
                 <input name="description" placeholder="Descripción" onChange={handleChange} />
                 <input name="price" placeholder="Precio (€)" onChange={handleChange} />
+                <input name="image" placeholder="URL de la imagen" onChange={handleChange} />
 
                 <label>
                     Sin gluten
                     <input type="checkbox" name="isGlutenFree" onChange={handleChange} />
                 </label>
-
-                <button type="submit">Crear plato</button>
+                
+                <div className='form-actions'>
+                    <button type="submit">Crear plato</button>
+                </div>
 
                 {error && <p>{error}</p> }
             </form>
