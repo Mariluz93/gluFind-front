@@ -10,7 +10,7 @@ function Home() {
     useEffect(() => {
         const fetchRestaurants = async () => {
             try {
-                const response = await fetch('http://localhost:4000/api/restaurants')
+                const response = await fetch('https://glufind-back.onrender.com/api/restaurants')
                 const data = await response.json()
 
                 if (!response.ok) {

@@ -12,7 +12,7 @@ function Favorites() {
     useEffect(() => {
         const fetchFavorites = async () => {
             try {
-                const response = await fetch('http://localhost:4000/api/favorites', {
+                const response = await fetch('https://glufind-back.onrender.com/api/favorites', {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -46,7 +46,7 @@ function Favorites() {
 
     const handleRemoveFavorite = async (restaurantId) => {
         try {
-            const response = await fetch(`http://localhost:4000/api/favorites/${restaurantId}`, {
+            const response = await fetch(`https://glufind-back.onrender.com/api/favorites/${restaurantId}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`

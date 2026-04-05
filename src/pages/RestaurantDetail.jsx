@@ -21,7 +21,7 @@ function RestaurantDetail() {
     useEffect(() => {
         const fetchRestaurantData = async () => {
             try {
-                const restaurantResponse = await fetch(`http://localhost:4000/api/restaurants/${id}`)
+                const restaurantResponse = await fetch(`https://glufind-back.onrender.com/api/restaurants/${id}`)
                 const restaurantData = await restaurantResponse.json()
 
                 if (!restaurantResponse.ok) {
@@ -30,7 +30,7 @@ function RestaurantDetail() {
                     return
                 }
 
-                const dishesResponse = await fetch(`http://localhost:4000/api/dishes/restaurant/${id}`)
+                const dishesResponse = await fetch(`https://glufind-back.onrender.com/api/dishes/restaurant/${id}`)
                 const dishesData = await dishesResponse.json()
 
                 if (!dishesResponse.ok) {
@@ -43,7 +43,7 @@ function RestaurantDetail() {
                 setDishes(dishesData)
 
                 if (token && user && user.role === "user") {
-                    const favoritesResponse = await fetch('http://localhost:4000/api/favorites', {
+                    const favoritesResponse = await fetch('https://glufind-back.onrender.com/api/favorites', {
                         headers: {
                             Authorization: `Bearer ${token}`,
                         }
@@ -70,7 +70,7 @@ function RestaurantDetail() {
 
     const handleAddFavorite = async () => {
         try {
-            const response = await fetch('http://localhost:4000/api/favorites', {
+            const response = await fetch('https://glufind-back.onrender.com/api/favorites', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -94,7 +94,7 @@ function RestaurantDetail() {
 
     const handleRemoveFavorite = async () => {
         try {
-            const response = await fetch(`http://localhost:4000/api/favorites/${id}`, {
+            const response = await fetch(`https://glufind-back.onrender.com/api/favorites/${id}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`

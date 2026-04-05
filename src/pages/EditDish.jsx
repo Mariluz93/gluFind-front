@@ -21,7 +21,7 @@ function EditDish() {
     useEffect(() => {
         const fetchDish = async () => {
             try {
-                const response = await fetch(`http://localhost:4000/api/dishes/${id}`)
+                const response = await fetch(`https://glufind-back.onrender.com/api/dishes/${id}`)
                 const data = await response.json()
 
                 if (!response.ok) {
@@ -60,7 +60,7 @@ function EditDish() {
         setError('')
 
         try {
-            const response = await fetch(`http://localhost:4000/api/dishes/${id}`, {
+            const response = await fetch(`https://glufind-back.onrender.com/api/dishes/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

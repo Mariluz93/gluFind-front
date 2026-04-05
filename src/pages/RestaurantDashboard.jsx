@@ -15,7 +15,7 @@ function RestaurantDashboard() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('http://localhost:4000/api/restaurants')
+                const response = await fetch('https://glufind-back.onrender.com/api/restaurants')
                 const data = await response.json()
 
                 if (!response.ok) {
@@ -28,7 +28,7 @@ function RestaurantDashboard() {
                 setRestaurant(myRestaurant || null)
 
                 if (myRestaurant) {
-                    const dishesResponse = await fetch(`http://localhost:4000/api/dishes/restaurant/${myRestaurant._id}`)
+                    const dishesResponse = await fetch(`https://glufind-back.onrender.com/api/dishes/restaurant/${myRestaurant._id}`)
                     const dishesData = await dishesResponse.json()
 
                     if(dishesResponse.ok) {
@@ -51,7 +51,7 @@ function RestaurantDashboard() {
 
     const handleDeleteDish = async (dishId) => {
         try {
-            const response = await fetch(`http://localhost:4000/api/dishes/${dishId}`, {
+            const response = await fetch(`https://glufind-back.onrender.com/api/dishes/${dishId}`, {
                 method: 'DELETE',
                 headers: {
                     Authorization: `Bearer ${token}`
