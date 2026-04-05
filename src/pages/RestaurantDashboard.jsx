@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useAuth } from '../context/AuthContext'
-import { Link } from "react-router-dom" 
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom" 
+import DashboardDishCard from "../components/DashboardDishCard"
 
 function RestaurantDashboard() {
     const { user, token } = useAuth()
@@ -69,6 +69,10 @@ function RestaurantDashboard() {
         }
     }
 
+    const handleEditDish = (dishId) => {
+        navigate(`/edit-dish/${dishId}`)
+    }
+
     if (loading) {
         return <p>Cargando dashboard...</p>
     }
@@ -80,7 +84,7 @@ function RestaurantDashboard() {
     return (
         <>
             <div className="page-container">
-                <h2>Dashboard</h2>
+                    <h2>Dashboard</h2>
             
                 {!restaurant ? (
                     <>
@@ -108,19 +112,12 @@ function RestaurantDashboard() {
                         ) : (
                             <div className="dashboard-list">
                                 {dishes.map((dish) => (
-                                    <div key={dish._id} className="dashboard-card">
-                                        {restaurant.image && (
-                                            <img src={dish.image} alt={dish.name} className="card-image" />
-                                        )}
-                                        <h4>{dish.name}</h4>
-                                        <p>{dish.description}</p>
-                                        <p>{dish.price} €</p>
-    
-                                        <div className='card-actions'>
-                                            <button onClick={() => navigate(`/edit-dish/${dish._id}`)}>Editar</button>
-                                            <button onClick={() => handleDeleteDish(dish._id)}>Eliminar</button>
-                                        </div>
-                                    </div>
+                                    <DashboardDishCard
+                                        key={dish._id}
+                                        dish={dish}
+                                        onEdit={handleEditDish}
+                                        onDelete={handleDeleteDish}
+                                    />
                                 ))}
                             </div>
                         )}

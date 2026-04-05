@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
 import { useAuth } from "../context/AuthContext"
+import FavoriteCard from "../components/FavoriteCard"
 
 function Favorites() {
     const { token, user } = useAuth()
@@ -85,23 +85,11 @@ function Favorites() {
                 ) : (
                     <div className="favorite-list">
                         {favorites.map((favorite) => (
-                            <div key={favorite._id} className="favorite-card">
-                                {favorite.restaurantId.image && (
-                                    <img
-                                        src={favorite.restaurantId.image}
-                                        alt={favorite.restaurantId.name}
-                                        className="card-image"
-                                    />
-                                )}
-                                <h3>{favorite.restaurantId.name}</h3>
-                                <p>{favorite.restaurantId.description}</p>
-                                <p>{favorite.restaurantId.address}</p>
-                                
-                                <div className='card-actions'>
-                                    <Link to={`/restaurants/${favorite.restaurantId._id}`}><button>Ver restaurante</button></Link>
-                                    <button onClick={() => handleRemoveFavorite(String(favorite.restaurantId._id))}>Quitar</button>
-                                </div>
-                            </div>
+                            <FavoriteCard
+                                key={favorite._id}
+                                favorite={favorite}
+                                onRemove={handleRemoveFavorite}
+                            />
                         ))}
                     </div>
                 )}
